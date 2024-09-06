@@ -1,15 +1,16 @@
 // Implement a singly linked list in TypeScript. Include methods for a
 //dding a node to the end of the list and printing all elements.
 
-class ListNode {
+export class ListNode {
     value: number;
     next: ListNode | null = null;
+    prev: ListNode | null = null;
     constructor(value: number) {
         this.value = value;
     }
 }
 
-class LinkedList {
+export class LinkedList {
     head: ListNode | null = null;
 
     addNode(newbie: ListNode) {
