@@ -7,6 +7,8 @@ export class ListNode {
     prev: ListNode | null = null;
     constructor(value: number) {
         this.value = value;
+        this.next = null;
+        this.prev = null;
     }
 }
 
@@ -14,14 +16,16 @@ export class LinkedList {
     head: ListNode | null = null;
 
     addNode(newbie: ListNode) {
-        if (this.head != null && newbie != null){
+        if (this.head != null){
             let node = this.head;
             while (node.next != null){
                 node = node.next;
             }
-            node.next = newbie;
+            newbie.prev = node;
             newbie.next = null;
-        }
+            node.next = newbie;
+        } else 
+            this.head = newbie;
     };
 
     print(){
@@ -37,21 +41,16 @@ export class LinkedList {
 
     // Implement add and print methods here
 }
+//  const node1 = new ListNode(1);
+//  const node2 = new ListNode(2);
+//  const node3 = new ListNode(3);
+//  const node4 = new ListNode(4);
 
-// const node1 = new ListNode(1);
-// const node2 = new ListNode(2);
-// const node3 = new ListNode(3);
-// const node4 = new ListNode(4);
-
-// const list = new LinkedList();
-// list.head = node1;
-// list.addNode(node2);
-// list.print();
-// console.log("\n");
-// list.addNode(node3);
-// list.print();
-// console.log("\n");
-// list.addNode(node4);
-// list.print();
+//  const list = new LinkedList();
+//  list.head = node1;
+//  list.addNode(node2);
+//  list.addNode(node3);
+//  list.addNode(node4);
+//  list.print();
 
 // run with "npx tsc addAndPrintNode.ts && node addAndPrintNode.js"
